@@ -9,6 +9,7 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const cors = require('cors')
+const mainRoutes = require("./routes/main")
 require('dotenv').config({path: './config/.env'})
 
 
@@ -30,7 +31,7 @@ app.use(
         secret: 'keyboard cat',
         resave: false,
         saveUninitialized: false,
-        store: new MongoStore({mongooseConnection: mongoose.connection})
+        // store: new MongoStore({mongooseConnection: mongoose.connection})
     })
 )
 
@@ -44,7 +45,7 @@ app.use(passport.session())
 app.use(flash())
 
 // Routes
-
+app.use("/", mainRoutes)
 
 
 
