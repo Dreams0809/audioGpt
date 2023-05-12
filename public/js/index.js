@@ -1,45 +1,14 @@
-var speechRecognition = window.speechRecognition
+const texts = document.querySelector('.texts');
 
-var recognition = new speechRecognition()
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-var textbox = document.querySelector("#textbox")
+const recognition = new window.SpeechRecognition();
+recognition.interimResults= true; 
 
-var instructions = document.querySelector("#instructions")
+let p = document.createElement('p');
 
-var content = ''
-
-recognition.continuous = true
-
-
-// recognition is started 
-
-recognition.onstart = function (){
-    instructions.text("Voice Recognition is on")
-}
-
-recognition.onspeechend = function () {
-    instructions.text("No Activity")
-}
-
-recognition.onerror = function (){
-    instructions.text("Try Again")
-}
-
-recognition.onresult = function (event){
-    var current = event.resultIndex;
-
-    var transcript = event.results[current][0].transcript
-
-    content += transcript
-
-    textbox.val(content)
-}
-
-
-document.querySelector("#start-btn").click(function (event) {
-    if (content.length) {
-        content += ''
-    }
-
-    recognition.start()
+recognition.addEventListener('results',(e) => {
+  console.log(e);
 })
+
+recognition.start();
