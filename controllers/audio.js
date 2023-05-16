@@ -5,8 +5,8 @@ module.exports = {
      
     getHome: async (req, res) => {
         try {
-          const user = await User.find({ user: req.user.userName });
-          res.render("index.ejs", { user: userName, user: req.user });
+          const searchUser = await Profile.find({ userId: request.user.id });
+          res.render("index.ejs", { profile: searchUser, user: req.user });
         } catch (err) {
           console.log(err);
         }
