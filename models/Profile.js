@@ -2,11 +2,16 @@ const mongoose = require("mongoose");
 
 const ProfileSchema = new mongoose.Schema({
 
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+   userName:{
+        type: String,
+        ref: "User"
     },
-
+    
+    email:{
+        type: String
+        ref: "User"
+    },
+    
     createdAt: {
         type:Date,
         default:Date.now
