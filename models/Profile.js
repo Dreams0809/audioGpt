@@ -7,6 +7,10 @@ const ProfileSchema = new mongoose.Schema({
         required: true
     },
     
+    userName:{
+        type: String
+        ref: "User"
+    
     email:{
         type: String
         ref: "User"
