@@ -11,7 +11,7 @@ recognition.interimResults= true;
 
 let p = document.createElement('p');
 
-<<<<<<< HEAD
+
 recognition.addEventListener('result',(e) => {
   const text = Array.from(e.results)
   .map(result => result[0])
@@ -32,8 +32,7 @@ recognition.start();
 
 //Figure out a way to ask question, 
 //when i say a keyword moves on to next question
-//
-=======
+
 //Adds an event listener to attach to a event with anew fucntion
 recognition.addEventListener('results',(e) => {
   
@@ -50,4 +49,4 @@ recognition.addEventListener('results',(e) => {
 })
 
 recognition.start();
->>>>>>> 64ad0cf4dcb8a471cc0ea314d6c62715f65cad08
+
