@@ -10,6 +10,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const cors = require('cors')
 const mainRoutes = require("./routes/main")
+const postRoutes = require("./routes/post")
 require('dotenv').config({path: './config/.env'})
 
 
@@ -46,6 +47,7 @@ app.use(flash())
 
 // Routes
 app.use("/", mainRoutes)
+app.use("/post", postRoutes)
 
 
 
