@@ -1,4 +1,4 @@
-const Profiule = require("../models/Profile")
+const Profile = require("../models/Profile")
 
 
 module.exports = {
