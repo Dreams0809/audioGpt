@@ -1,4 +1,4 @@
-﻿const passport = require('passport')
+const passport = require('passport')
 const validator = require('validator')
 const User = require('../Models/User')
 
