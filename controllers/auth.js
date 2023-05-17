@@ -2,7 +2,7 @@ const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
 
- exports.getLogin = (req, res) => {
+ modules.exports.getLogin = (req, res) => {
     if (req.user) {
       return res.redirect('/home')
     }
@@ -11,7 +11,7 @@ const User = require('../models/User')
     })
   }
   
-  exports.postLogin = (req, res, next) => {
+  modules.exports.postLogin = (req, res, next) => {
     const validationErrors = []
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
     if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
@@ -36,7 +36,7 @@ const User = require('../models/User')
     })(req, res, next)
   }
   
-  exports.logout = (req, res) => {
+  modules.exports.logout = (req, res) => {
   req.logout(() => {
       console.log('User has logged out.')
     })
@@ -47,7 +47,7 @@ const User = require('../models/User')
     })
   }
   
-  exports.getSignup = (req, res) => {
+  modules.exports.getSignup = (req, res) => {
     if (req.user) {
       return res.redirect('/home')
     }
@@ -56,7 +56,7 @@ const User = require('../models/User')
     })
   }
   
-  exports.postSignup = (req, res, next) => {
+  modules.exports.postSignup = (req, res, next) => {
     const validationErrors = []
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
     if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'Password must be at least 8 characters long' })
