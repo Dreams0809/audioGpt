@@ -2,9 +2,9 @@ const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
 
+ 
 
-
-  module.exports , function getLogin(req, res) {
+  module.exports= {getLogin(req, res) {
 
 
 
@@ -15,9 +15,10 @@ const User = require('../models/User')
       title: 'Login'
     })
   }
+}
   
 
-  module.exports , function  postLogin(req, res, next) {
+module.exports = { postLogin(req, res, next) {
 
   
 
@@ -44,9 +45,9 @@ const User = require('../models/User')
       })
     })(req, res, next)
   }
-  
+}
 
-  module.exports , function  logout(req, res) {
+module.exports = {logout(req, res) {
 
   req.logout(() => {
       console.log('User has logged out.')
@@ -57,9 +58,9 @@ const User = require('../models/User')
       res.redirect('/')
     })
   }
-  
+}  
 
-  module.exports , function  getSignup(req, res) {
+module.exports ={ getSignup(req, res) {
   
 
     if (req.user) {
@@ -69,9 +70,9 @@ const User = require('../models/User')
       title: 'Create Account'
     })
   }
-  
+}
 
-  module.exports , function postSignup(req, res, next) {
+module.exports ={postSignup(req, res, next) {
 
 
     const validationErrors = []
@@ -84,13 +85,13 @@ const User = require('../models/User')
       return res.redirect('../signup')
     }
     req.body.email = normalizeEmail(req.body.email, { gmail_remove_dots: false })
-  
+    
     const user = new User({
       userName: req.body.userName,
       email: req.body.email,
       password: req.body.password
     })
-  
+    
     findOne({$or: [
       {email: req.body.email},
       {userName: req.body.userName}
@@ -110,4 +111,5 @@ const User = require('../models/User')
         })
       })
     })
+  }
 }
