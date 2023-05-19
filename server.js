@@ -10,6 +10,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const cors = require('cors')
 const mainRoutes = require("./routes/main")
+const LocalStrategy = require("passport-local").Strategy
 
 require('dotenv').config({path: './config/.env'})
 
