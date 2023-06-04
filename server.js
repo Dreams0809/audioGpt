@@ -47,7 +47,7 @@ app.use(passport.session())
 app.use(flash())
 
 // Routes
-app.use("/home", mainRoutes)
+app.use("/", mainRoutes)
 
 
 
